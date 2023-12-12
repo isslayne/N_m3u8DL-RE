@@ -6,7 +6,9 @@ namespace N_m3u8DL_RE.Common.Log;
 
 public class NonAnsiWriter : TextWriter
 {
-    public override Encoding Encoding => Encoding.UTF8;
+    public override Encoding Encoding => Console.OutputEncoding;
+
+    private string lastOut = "";
 
     public override void Write(char value)
     {
@@ -15,14 +17,24 @@ public class NonAnsiWriter : TextWriter
 
     public override void Write(string value)
     {
+        if (lastOut == value)
+        {
+            return;
+        }
+        lastOut = value;
         RemoveAnsiEscapeSequences(value);
     }
 
     private void RemoveAnsiEscapeSequences(string input)
     {
         // Use regular expression to remove ANSI escape sequences
-        string output = Regex.Replace(input, @"\x1B\[[0-?]*[ -/]*[@-~]", "");
-
+        string output = Regex.Replace(input, @"\x1B\[(\d+;?)+m", "");
+        output = Regex.Replace(output, @"\[\??\d+[AKl]", "");
+        output = Regex.Replace(output,"[\r\n] +","");
+        if (string.IsNullOrWhiteSpace(output))
+        {
+            return;
+        }
         // Implement your custom write logic here, e.g., write to console
         Console.Write(output);
     }
