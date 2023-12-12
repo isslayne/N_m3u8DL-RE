@@ -85,6 +85,10 @@ namespace N_m3u8DL_RE.CommandLine
         /// </summary>
         public bool BinaryMerge { get; set; }
         /// <summary>
+        /// See: <see cref="CommandInvoker.ForceAnsiConsole"/>.
+        /// </summary>
+        public bool ForceAnsiConsole { get; set; }
+        /// <summary>
         /// See: <see cref="CommandInvoker.DelAfterDone"/>.
         /// </summary>
         public bool DelAfterDone { get; set; }

@@ -616,8 +616,8 @@ namespace N_m3u8DL_RE.DownloadManager
         {
             ConcurrentDictionary<int, SpeedContainer> SpeedContainerDic = new(); //速度计算
             ConcurrentDictionary<StreamSpec, bool?> Results = new();
-
-            var progress = AnsiConsole.Progress().AutoClear(true);
+            
+            var progress = CustomAnsiConsole.Console.Progress().AutoClear(true);
 
             //进度条的列定义
             progress.Columns(new ProgressColumn[]
