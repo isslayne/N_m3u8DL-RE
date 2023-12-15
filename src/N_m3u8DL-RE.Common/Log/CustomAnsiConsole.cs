@@ -58,11 +58,11 @@ public static class CustomAnsiConsole
             {
                 ansiConsoleSettings.Out = new AnsiConsoleOutput(new NonAnsiWriter());
             }
-
             ansiConsoleSettings.Interactive = InteractionSupport.Yes;
             ansiConsoleSettings.Ansi = AnsiSupport.Yes;
             // ansiConsoleSettings.Ansi = AnsiSupport.Yes;
             Console = AnsiConsole.Create(ansiConsoleSettings);
+            Console.Profile.Width = Int32.MaxValue;
         }
         else
         {
