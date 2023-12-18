@@ -167,6 +167,7 @@ namespace N_m3u8DL_RE.DownloadManager
             var type = streamSpec.MediaType ?? Common.Enum.MediaType.VIDEO;
             var dirName = $"{task.Id}_{OtherUtil.GetValidFileName(streamSpec.GroupId ?? "", "-")}_{streamSpec.Codecs}_{streamSpec.Bandwidth}_{streamSpec.Language}";
             var tmpDir = Path.Combine(DownloaderConfig.DirPrefix, dirName);
+            // DownloaderConfig.ActualTmpDir = tmpDir;
             var saveDir = DownloaderConfig.MyOptions.SaveDir ?? Environment.CurrentDirectory;
             var saveName = DownloaderConfig.MyOptions.SaveName != null ? $"{DownloaderConfig.MyOptions.SaveName}.{streamSpec.Language}".TrimEnd('.') : dirName;
             var headers = DownloaderConfig.Headers;
@@ -877,7 +878,8 @@ namespace N_m3u8DL_RE.DownloadManager
                     var file = Path.Combine(DownloaderConfig.DirPrefix, item.Key);
                     if (File.Exists(file)) File.Delete(file);
                 }
-                OtherUtil.SafeDeleteDir(DownloaderConfig.DirPrefix);
+                // OtherUtil.SafeDeleteDir(DownloaderConfig.DirPrefix);
+                Logger.Info("Don't Delete {} SimpleLoveRecorderManager2.cs Line878",DownloaderConfig.DirPrefix);
             }
 
             //混流
@@ -911,7 +913,8 @@ namespace N_m3u8DL_RE.DownloadManager
                         Logger.WarnMarkUp("[grey]Cleaning files...[/]");
                         OutputFiles.ForEach(f => File.Delete(f.FilePath));
                         var tmpDir = DownloaderConfig.MyOptions.TmpDir ?? Environment.CurrentDirectory;
-                        OtherUtil.SafeDeleteDir(tmpDir);
+                        // OtherUtil.SafeDeleteDir(tmpDir);
+                        Logger.Info("Don't Delete {} SimpleLoveRecorderManager2.cs Line913",tmpDir);
                     }
                 }
                 else
