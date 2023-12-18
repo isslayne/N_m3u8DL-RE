@@ -570,7 +570,9 @@ namespace N_m3u8DL_RE.DownloadManager
                 {
                     File.Delete(file);
                 }
-                OtherUtil.SafeDeleteDir(tmpDir);
+                OtherUtil.SafeDeleteDir(tmpDir);   
+                // Logger.Info("Don't Delete {} SimpleDownloadManager.cs Line574",tmpDir);
+           
             }
 
             //重新读取init信息
@@ -691,7 +693,8 @@ namespace N_m3u8DL_RE.DownloadManager
                     var file = Path.Combine(DownloaderConfig.DirPrefix, item.Key);
                     if (File.Exists(file)) File.Delete(file);
                 }
-                OtherUtil.SafeDeleteDir(DownloaderConfig.DirPrefix);
+                // OtherUtil.SafeDeleteDir(DownloaderConfig.ActualTmpDir);
+                Logger.Info("Don't Delete {} SimpleDownloadManager.cs Line692",DownloaderConfig.DirPrefix);
             }
 
             //混流
@@ -725,7 +728,9 @@ namespace N_m3u8DL_RE.DownloadManager
                         Logger.WarnMarkUp("[grey]Cleaning files...[/]");
                         OutputFiles.ForEach(f => File.Delete(f.FilePath));
                         var tmpDir = DownloaderConfig.MyOptions.TmpDir ?? Environment.CurrentDirectory;
-                        OtherUtil.SafeDeleteDir(tmpDir);
+                        // OtherUtil.SafeDeleteDir(tmpDir);
+                        Logger.Info("Don't Delete {} SimpleDownloadManager.cs Line727",tmpDir);
+
                     }
                 }
                 else
