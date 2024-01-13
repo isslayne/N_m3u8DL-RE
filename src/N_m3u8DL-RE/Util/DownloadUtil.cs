@@ -72,7 +72,10 @@ namespace N_m3u8DL_RE.Util
             {
                 foreach (var item in headers)
                 {
-                    request.Headers.TryAddWithoutValidation(item.Key, item.Value);
+                    if (!request.Headers.TryAddWithoutValidation(item.Key, item.Value))
+                    {
+                        Logger.WarnMarkUp("failed to add header => {}: {}",item.Key,item.Value);
+                    }
                 }
             }
             Logger.Debug(request.Headers.ToString());
