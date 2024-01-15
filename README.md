@@ -13,6 +13,7 @@
 + 添加 `--live-pipe-options`用于自定义ffmpeg管道混流参数（原仓库那边如果混流到ffmpeg稳定了大概会删）
 + 不删除整个临时文件夹而是只删除新建的子文件夹
 + 一些奇奇怪怪的重试
++ [[bug fix] 本地文件被多次解密导致报错 The input data is not a complete block](https://github.com/nilaoda/N_m3u8DL-RE/pull/344)
 
 
 
