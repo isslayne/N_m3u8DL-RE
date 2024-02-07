@@ -878,8 +878,8 @@ namespace N_m3u8DL_RE.DownloadManager
                     var file = Path.Combine(DownloaderConfig.DirPrefix, item.Key);
                     if (File.Exists(file)) File.Delete(file);
                 }
-                // OtherUtil.SafeDeleteDir(DownloaderConfig.DirPrefix);
-                Logger.Info("Don't Delete {} SimpleLoveRecorderManager2.cs Line878",DownloaderConfig.DirPrefix);
+                OtherUtil.SafeDeleteDir(DownloaderConfig.DirPrefix);
+                Logger.Debug("Don't Delete {} SimpleLoveRecorderManager2.cs Line878",DownloaderConfig.DirPrefix);
             }
 
             //混流
@@ -913,8 +913,8 @@ namespace N_m3u8DL_RE.DownloadManager
                         Logger.WarnMarkUp("[grey]Cleaning files...[/]");
                         OutputFiles.ForEach(f => File.Delete(f.FilePath));
                         var tmpDir = DownloaderConfig.MyOptions.TmpDir ?? Environment.CurrentDirectory;
-                        // OtherUtil.SafeDeleteDir(tmpDir);
-                        Logger.Info("Don't Delete {} SimpleLoveRecorderManager2.cs Line913",tmpDir);
+                        OtherUtil.SafeDeleteDir(tmpDir);
+                        Logger.Debug("Don't Delete {} SimpleLoveRecorderManager2.cs Line913",tmpDir);
                     }
                 }
                 else
