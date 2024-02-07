@@ -34,6 +34,12 @@ namespace N_m3u8DL_RE.Common.Resource
                 zhTW: "關閉ansi顏色",
                 enUS: "Remove ANSI colors"
             ),
+            ["cmd_noansi"] = new TextContainer
+            (
+                zhCN: "显示进度信息",
+                zhTW: "顯示進度信息",
+                enUS: "Print progress report during downloading"
+            ),
             ["customRangeWarn"] = new TextContainer
             (
                 zhCN: "请注意，自定义下载范围有时会导致音画不同步",

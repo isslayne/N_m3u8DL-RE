@@ -93,6 +93,10 @@ namespace N_m3u8DL_RE.CommandLine
         /// </summary>
         public bool Noansi { get; set; }
         /// <summary>
+        /// See: <see cref="CommandInvoker.Status"/>.
+        /// </summary>
+        public bool Status { get; set; }
+        /// <summary>
         /// See: <see cref="CommandInvoker.UseFFmpegConcatDemuxer"/>.
         /// </summary>
         public bool UseFFmpegConcatDemuxer { get; set; }
