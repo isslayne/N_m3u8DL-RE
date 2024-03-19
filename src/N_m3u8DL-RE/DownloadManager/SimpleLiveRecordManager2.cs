@@ -542,7 +542,7 @@ namespace N_m3u8DL_RE.DownloadManager
                             fileOutputStream = PipeUtil.CreatePipe(pipeName);
                             Logger.InfoMarkUp($"{ResString.namedPipeCreated} [cyan]{pipeName.EscapeMarkup()}[/]");
                             PipeSteamNamesDic[task.Id] = pipeName;
-                            if (PipeSteamNamesDic.Count == SelectedSteams.Where(x => x.MediaType != MediaType.SUBTITLES).Count()) 
+                            if (PipeSteamNamesDic.Count == SelectedSteams.Count()) 
                             {
                                 var names = PipeSteamNamesDic.OrderBy(i => i.Key).Select(k => k.Value).ToArray();
                                 var t = PipeUtil.StartPipeMuxAsync(DownloaderConfig.MyOptions.FFmpegBinaryPath!, DownloaderConfig.MyOptions.LivePipeOptions, names, output);
