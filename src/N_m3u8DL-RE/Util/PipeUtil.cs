@@ -96,7 +96,7 @@ namespace N_m3u8DL_RE.Util
             else
             {
                 command.Append(inputs);
-                command.Append(" -strict unofficial -c copy ");
+                command.Append(" -strict unofficial -c:v copy -c:a copy -c:s mov_text ");
                 command.Append($" -metadata date=\"{dateString}\" ");
                 command.Append($" -ignore_unknown -copy_unknown ");
             }
