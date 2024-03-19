@@ -530,7 +530,7 @@ namespace N_m3u8DL_RE.DownloadManager
                             Logger.WarnMarkUp($"{Path.GetFileName(output)} => {Path.GetFileName(output = Path.ChangeExtension(output, $"copy" + Path.GetExtension(output)))}");
                         }
 
-                        if (!DownloaderConfig.MyOptions.LivePipeMux || streamSpec.MediaType == MediaType.SUBTITLES)
+                        if (!DownloaderConfig.MyOptions.LivePipeMux)
                         {
                             fileOutputStream = new FileStream(output, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Read);
                         }
