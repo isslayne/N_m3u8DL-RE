@@ -554,7 +554,7 @@ namespace N_m3u8DL_RE.DownloadManager
                         }
                     }
 
-                    if (streamSpec.MediaType != MediaType.SUBTITLES || treamSpec.MediaType == MediaType.SUBTITLES)
+                    if (streamSpec.MediaType != MediaType.SUBTITLES)
                     {
                         var initResult = streamSpec.Playlist!.MediaInit != null ? FileDic[streamSpec.Playlist!.MediaInit!]! : null;
                         var files = FileDic.Where(f => f.Key != streamSpec.Playlist!.MediaInit).OrderBy(s => s.Key.Index).Select(f => f.Value).Select(v => v!.ActualFilePath).ToArray();
