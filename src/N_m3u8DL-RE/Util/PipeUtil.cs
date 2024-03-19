@@ -96,7 +96,7 @@ namespace N_m3u8DL_RE.Util
             else
             {
                 command.Append(inputs);
-                command.Append(" -strict unofficial -c:v copy -c:a copy -c:s mov_text ");
+                command.Append(" -strict unofficial -c:v copy -c:a copy -c:s copy ");
                 command.Append($" -metadata date=\"{dateString}\" ");
                 command.Append($" -ignore_unknown -copy_unknown ");
             }
@@ -108,12 +108,12 @@ namespace N_m3u8DL_RE.Util
                     if (customDest.Trim().StartsWith("-"))
                         command.Append(customDest);
                     else
-                        command.Append($" -f mpegts -shortest \"{customDest}\"");
+                        command.Append($" -shortest \"{customDest}\"");
                     Logger.WarnMarkUp($"[deepskyblue1]{command.ToString().EscapeMarkup()}[/]");
                 }
                 else
                 {
-                    command.Append($" -f mpegts -shortest \"{outputPath}\"");
+                    command.Append($" -shortest \"{outputPath}\"");
                 }
             }
             else
